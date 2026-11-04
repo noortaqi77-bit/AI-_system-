@@ -37,6 +37,29 @@ The models were evaluated to identify the most suitable model for restaurant rev
 | Twitter XLM-RoBERTa | XLM-RoBERTa-base | 198M multilingual tweets | 8 languages | 278M | Not specified |
 
 
+### 2.5 Initial Inference Results
+Model 1 labels are LABEL_0 (negative) and LABEL_1 (positive). On “The food was amazing but the service was awful.” Model 1 predicted LABEL_0 (0.62), Model 2 predicted NEGATIVE (0.99) and Model 3 predicted negative (0.92). On “Okay.” Model 1 predicted LABEL_1 (0.57), Model 2 predicted POSITIVE (0.9998) and Model 3 predicted neutral (0.48). I think binary models are forced to pick a side on neutral text.
+
+### 2.6 Evaluation
+
+The models were evaluated using the following metrics: (Accuracy, Macro Precision, Macro Recall, Macro F1-score, Inference Time)
+
+These metrics were used to compare classification performance and prediction speed across the three models.
+
+### 2.7 Error Analysis
+
+Ten failure cases were selected to compare the three models and understand their classification errors.
+
+| Model | Main Failure Patterns |
+|---|---|
+| Model 1 – Yelp BERT | Struggled with indirect negative reviews and sometimes predicted Positive with high confidence. |
+| Model 2 – DistilBERT | Misclassified positive expressions within negative reviews, sometimes with very high confidence. |
+| Model 3 – XLM-RoBERTa | Struggled with short reviews and sometimes predicted Neutral on the binary dataset. |
+
+Only one review (row 51) was misclassified by all three models, suggesting that some reviews are difficult to classify because of their wording and context.
+
+The analysis showed that high confidence does not always mean a correct prediction.
+
 
 
 
