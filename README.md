@@ -69,6 +69,33 @@ The analysis showed that high confidence does not always mean a correct predicti
 | XLM-RoBERTa | 90% | 0.909 | 0.935 | 0.922 | 10 | 11s |
 
 
+## 3. Task B – Zero Shot Classification
+
+### 3.1 Data Collection
+
+The dataset `bahrain_restaurant_reviews_balanced_35.csv` contains 35 English restaurant reviews from Bahrain.
+
+The reviews are divided equally into seven categories, with 5 reviews per category: Food Quality, Service, Price , Cleanliness , Atmosphere, Location , Waiting Tim
+
+### 3.2 Model Selection
+
+Two pretrained models were selected for zero-shot classification:
+
+1. `facebook/bart-large-mnli`: Selected to classify reviews into the seven categories without additional training.
+2. `MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli`: Selected to compare BART with a smaller multilingual model.
+
+### 3.3 Model Card Investigation
+
+| Information | BART-large-MNLI | Multilingual MiniLM |
+|---|---|---|
+| Architecture | BART-large | Multilingual MiniLMv2 |
+| Training Data | MultiNLI | MultiNLI and XNLI |
+| Language | English | 100+ languages |
+| Parameters | 400M | Approximately 117M |
+| License | MIT | MIT |
+
+
+
 
 
 
