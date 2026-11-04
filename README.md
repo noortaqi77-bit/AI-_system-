@@ -60,6 +60,16 @@ Only one review (row 51) was misclassified by all three models, suggesting that 
 
 The analysis showed that high confidence does not always mean a correct prediction.
 
+### 2.8 Model Comparison
+
+| Model | Accuracy | Negative F1 | Positive F1 | Macro F1 (POS/NEG) | Errors | Inference Time |
+|---|---:|---:|---:|---:|---:|---:|
+| Yelp BERT | 93% | 0.923 | 0.936 | 0.929 | 7 | 31.37s |
+| DistilBERT | 92% | 0.918 | 0.922 | 0.920 | 8 | 12.25s |
+| XLM-RoBERTa | 90% | 0.909 | 0.935 | 0.922 | 10 | 11s |
+
+
+
 
 
 
