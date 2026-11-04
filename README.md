@@ -11,6 +11,10 @@ The system performs two tasks:
 
 The project investigates and compares pretrained models to determine their suitability for analyzing restaurant reviews.
 
+## APP :
+
+(https://ml4prrvmelmy4appk3aadqm.streamlit.app/)
+
 ## 2. Task A – Sentiment Classification
 
 ### 2.1 Data Collection
@@ -94,6 +98,31 @@ Two pretrained models were selected for zero-shot classification:
 | Parameters | 400M | Approximately 117M |
 | License | MIT | MIT |
 
+Both models were tested using the review "Found this great place while walking the back streets of Manama. It’s near or in the souk." BART predicted Location with 57% confidence, while MiniLM predicted Location with 72% confidence. Both models identified the correct topic, but MiniLM gave a higher confidence score.
 
+### 3.4 Model Evaluation
 
+| Model | Accuracy | Macro F1 | Errors |
+|---|---:|---:|---:|
+| BART-large-MNLI | 77.14% | 74.4% | 8 |
+| Multilingual MiniLM | 65.71% | 60.7% | 12 |
 
+### 3.5 Model Comparison
+
+BART achieved better results than MiniLM, with 77.14% accuracy and 74.4% Macro F1, compared to 65.71% accuracy and 60.7% Macro F1. MiniLM was faster (4.75 seconds) and smaller, but BART classified restaurant reviews more accurately. Since this project focuses on English restaurant reviews in Bahrain, I recommend BART because classification performance is more important than multilingual support.
+
+### 3.6 Error Analysis
+
+BART made 8 classification errors out of 35 reviews. It mainly confused Atmosphere with Location and Service with Waiting Time. It also struggled with reviews that mentioned more than one topic, such as food quality and service. For example, a review about friendly staff and good food was classified as Food Quality instead of Service.
+
+## Limitations
+
+The project has some limitations. The datasets are small, with only 100 reviews for Task A and 35 reviews for Task B. The models may also struggle with short reviews, indirect expressions, mixed sentiments, and reviews that mention multiple topics. The models were tested only on English reviews, so their performance on Arabic reviews is unknown.
+
+## Final Recommendation
+
+For Task A, I recommend Yelp BERT because it achieved the highest accuracy (93%). For Task B, I recommend BART-large-MNLI because it achieved the highest accuracy is 77.14% and Macro F1-score 74.4%. Both models are suitable starting points for the restaurant review analyzer, but more testing is needed before real-world use.
+
+##  Future Work / Fine-Tuning Proposal
+
+In the future, I would collect more restaurant reviews, including Arabic and Bahrain-specific reviews. I would fine-tune the models using domain-specific data to improve their performance. For Task A, I would train the models on more reviews with positive and negative labels. For Task B, I would use reviews labeled with the seven restaurant categories. I would then compare the fine-tuned models with the original models using the same evaluation metrics.
