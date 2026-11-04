@@ -97,15 +97,3 @@ Two pretrained models were selected for zero-shot classification:
 
 
 
-
-
-
-
-
-
-
-**Task B – Topic Classification:**
-- Dataset:bahrain_restaurant_reviews_balanced_35.csv , Contains 35 English restaurant reviews related to restaurants in Bahrain.
-- Includes 7 categories, with five reviews per category  ["Food Quality","Service","Price","Cleanliness","Atmosphere","Location","Waiting Time"]
-- The dataset was collected and prepared for this experiment.
-
